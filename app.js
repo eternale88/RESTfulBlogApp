@@ -26,7 +26,7 @@ var Blog = mongoose.model("Blog", blogSchema);
 app.get("/", function(req, res) {
     res.redirect("/blogs");
 });
-// 1. index: retrieve all blogs from database
+// 1. Index ROUTE: retrieve all blogs from database
 app.get("/blogs", function(req, res) {
   Blog.find({}, function(err, blogs){
       if(err) {
@@ -37,6 +37,22 @@ app.get("/blogs", function(req, res) {
   });
 });
 
+//2. New ROUTE
+app.get("/blogs/new", function(req,res) {
+  res.render("new");
+});
+//3. Create ROUTE
+app.post("/blogs", function(req, res){
+    //create blog
+    Blog.create(req.body.blog, function(err, newBlog){
+        if(err) {
+          res.render("new");
+        } else {
+              //then, redirect to the index
+          res.redirect("/blogs");
+        }
+    });
+});
 app.listen(3000, function(req, res){
     console.log("RESTful Blog App server has started!");
 });
