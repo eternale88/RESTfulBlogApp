@@ -88,6 +88,20 @@ app.put("/blogs/:id", function(req, res){
         }
     });
 });
+
+// Delete ROUTE
+app.delete("/blogs/:id", function(req, res) {
+    //destroy blogs
+    Blog.findByIdAndRemove(req.params.id, function(err) {
+      //redirect somewhere
+        if(err) {
+            res.redirect("/blogs");
+        } else {
+            res.redirect("/blogs");
+        }
+    });
+});
+
 app.listen(3000, function(req, res){
     console.log("RESTful Blog App server has started!");
 });
