@@ -12,7 +12,7 @@
 #### To download and run the project
 #### Fork or clone this repo
 #### Using Termial or command propt => within the directory you want to save the code, run the git command:
-`https://github.com/eternale88/YelpCamp.git`
+`https://github.com/eternale88/RESTfulBlogApp.git`
 #### Then install the dependencies from the package.json using the command:
 `npm install`
 ####
